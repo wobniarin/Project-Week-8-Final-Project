@@ -167,10 +167,10 @@ In this case, each row contains one user and one halfhour period. There are thre
 
 
 **Datasets that will be initially used for the project**
-- information_households.csv
-- weather_hourly_darksky.csv
-- hhblock_dataset.zip : Block_12 
-- halfhourly_dataset.zip: Block_12 
+- **information_households.csv**
+- **weather_hourly_darksky.csv**
+- **hhblock_dataset.zip : Block_12**
+- **halfhourly_dataset.zip: Block_12** 
 
 <a name="cleaning"></a>
 
