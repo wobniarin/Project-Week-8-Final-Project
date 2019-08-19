@@ -313,5 +313,10 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+## Dataset files 
+**/your-project/0.Data
+/home/ingrid/Documents/DA_Ironhack/Week8/Final_Project/your-project/0.Data/raw_data
+
+
 # End of https://www.gitignore.io/api/linux,macos,python,windows,pycharm,libreoffice,microsoftoffice,jupyternotebooks
 
