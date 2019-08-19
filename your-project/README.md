@@ -1,9 +1,9 @@
 <img src="https://bit.ly/2VnXWr2" alt="Ironhack Logo" width="100"/>
 
 # Electricity Consumption in London: Time Series analysis and End-user behavior
-*[Íngrid Munné Collado]*
+*Íngrid Munné Collado*
 
-*[Data Analytics June 2019]*
+*Data Analytics June 2019*
 
 ## Content
 - [Project Description](#project-description)
@@ -64,8 +64,113 @@ In order to answer the questions presented above, as well as to prove the hypoth
 
 - **Accorn Classification:** The end-users classification is considered for each end-user according to their smart meter's measurements. The data comes also from London Data Store, but the explanation can be found in the link below and also to the CACI Report, a company specialist in providing Integrated Marketing, Location Planning Consultancy, Network Services and Technology Solutions. [Link to the CACI Report](https://acorn.caci.co.uk/downloads/Acorn-User-guide.pdf) 
 
+The raw data downloaded has a total size of more than 11 GB. For this reason, it should be better to understand what this data tries to explain and how it is structured, in order to know which files will be used for the project and which not. 
+
+- information_households.csv → This csv contains 5 columns:
+    - LCLid: id of the household 
+    - stdorToU: Type of tariff of the user
+    - acorn: acorn group associated 
+    - acorn_grouped: details of the acorn 
+    - file: file name or hourly block on this user appears. 
+
+- acorn_details.csv → 20 columns containing information about how to classify end-users according to 68 indicators 
+    - MAIN CATEGORIES
+    - CATEGORIES
+    - REFERENCE 
+    - ACORN-A 
+    - ACORN-B
+    - ACORN-C
+    - ACORN-D
+    - ACORN-E
+    - ACORN-F
+    - ACORN-G
+    - ACORN-H
+    - ACORN-I
+    - ACORN-J
+    - ACORN-K
+    - ACORN-L
+    - ACORN-M
+    - ACORN-N
+    - ACORN-O
+    - ACORN-P
+    - ACORN-Q
+- uk_bank_holidays: This csv file contains two columns
+    - Date: date where a bank holiday between 2012 and 2014 occured
+    - Type: Name of the bank holiday (e.g. Christmas, Easter, Summer bank holiday, etc.)
+- weather_hourly_darksky.csv: csv file containing information on the weather in a hourly scale. It contains 12 columns: 
+    - visibility: 
+    - windBearing:
+    - Temperature: measured in Celsius Degrees 
+    - Date Time:
+    - dewPoint:
+    - pressure:
+    - apparentTemperature:
+    - windSpeed:
+    - precipType:
+    - icon:
+    - humidity: 
+    - summary: 
+
+- weather_daily_darksky.csv: csv file containing information on the weather in a daily scale. It contains 32 columns of features: 
+    - temperatureMax: maximum temperature of the day (℃ DEGREE CELSIUS)
+    - temperatureMaxTime: hour of the day of the maximum temperature for that day. 
+    - windBearing
+    - icon
+    - dewPoint
+    - temperatureMinTime
+    - cloudCover
+    - WindSpeed: speed of the wind in km/h
+    - pressure: pressure in (mbar)
+    - apparentTemperatureMinTime
+    - apparentTemperatureHigh
+    - precipType
+    - visibility
+    - apparentTemperatureHighTime
+    - apparentTemperatureLow
+    - apparentTemperatureMax 
+    - uvIndex
+    - time: day timestamp 
+    - sunsetTime 
+    - TemperatureLow
+    - TemperatureMin
+    - TemperatureHigh
+    - sunriseTime
+    - TemperatureHighTime
+    - uvIndexTime
+    - summary
+    - temperatureLowTime: timestamp where the minimum temperature was reached 
+    - apparentTemperatureMin: temperature at temperatureLowTime
+    - apparentTemperatureMaxTime: timestamp where the maximum temperature was reached on that day 
+    - apparentTemperatureMax: temperature at apparentTemperatureMaxTime 
+    - MoonPhase:
+- halfhourly_dataset.zip or folder: this folder contain 112 blocks. Each block is a .csv file containing data of the different households at a half hourly scale.
+In this case, each row contains one user and one halfhour period. There are three columns:
+    - userID
+    - timestamp
+    - energy consumption in kWh. 
 
 
+- hhblock_dataset.zip or folder: this folder contains 112 blocks. It contains the same information as halfhourly_dataset in terms of data. In this case, each row is one user for day; and each column is one half-hour for that day, with the energy consumption on that day. 
+
+- daily_STATS_datasets_blocks.zip Zip folder containing 112 blocks. Each block contains information about the energy consumption of that end-user in that day: 
+    - LCLid : userID
+    - day: 
+    - energy_median
+    - energy_mean
+    - energy_max
+    - energy_count
+    - energy_std
+    - energy_sum 
+    - energy_min 
+
+- daily_STATS_datasets_one_file.gz Zip folder containing the same information as above but in only one file. 
+
+
+**Datasets that will be initially used for the project**
+- information_households.csv
+- weather_hourly_darksky.csv
+- hhblock_dataset.zip : Block_12 
+- halfhourly_dataset.zip: Block_12 
 
 <a name="cleaning"></a>
 
