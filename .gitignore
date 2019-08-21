@@ -318,5 +318,9 @@ $RECYCLE.BIN/
 **/your-project/0.Data
 **/0.Data
 
+## Credential Secrets
+**/2.JupyterNotebooks/Credentials_secrets.ipynb
+**/2.JupyterNotebooks/Credentials_secrets.py
+
 # End of https://www.gitignore.io/api/linux,macos,python,windows,pycharm,libreoffice,microsoftoffice,jupyternotebooks
 
