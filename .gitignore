@@ -316,7 +316,7 @@ $RECYCLE.BIN/
 ## Dataset files 
 
 **/your-project/0.Data
-
+**/0.Data
 
 # End of https://www.gitignore.io/api/linux,macos,python,windows,pycharm,libreoffice,microsoftoffice,jupyternotebooks
 
