@@ -24,7 +24,7 @@ Information about each household and their tariff.
 20 columns containing information about how to classify end-users according to 68 indicators 
 
 | Feature name   | Description  | Units     |
-| :------------- | :----------: | -----------: |
+| :------------- | :---------- | -----------: |
 |  MAIN CATEGORIES         | Social Indicators where acorn group is split into | [Population, Economy, Education, Health, Transport,...]           |
 |  CATEGORIES         | Indicators where acorn is measured | [Age, Country of Birth, Religion, House Type,... ]           |
 | Reference          | Units on which that indicator is measured | [years, type of religion,  Occupation ]  |
