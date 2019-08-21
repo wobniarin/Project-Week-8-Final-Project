@@ -1,6 +1,6 @@
 <img src="https://bit.ly/2VnXWr2" alt="Ironhack Logo" width="100"/>
 
-# Electricity Consumption in London: Time Series analysis and End-user behavior
+# Stranger things on Smart Energy
 *Íngrid Munné Collado*
 
 *Data Analytics June 2019*
@@ -33,11 +33,6 @@ Hence, this is the idea of this project. By using data coming from London Data S
 <a name="hypotheses-/-questions"></a>
 
 ## 2. Hypotheses / Questions
-* What data/business/research/personal question you would like to answer? 
-* What is he context for the question and the scientific or business application? 
-* What are the hypotheses you would like to test in order to answer your question?  
-Frame your hypothesis with statistical/data languages (i.e. define Null and Alternative Hypothesis). You can use formulas if you want but that is not required.
-
 The main questions we want to answer with this project are: 
 
 - Can our electricity consumption be forecast? In this case, we would like to answer this question by predicting the electricity consumption of one household. 
@@ -51,10 +46,6 @@ All these questions are of interests when dealing with the integration of renewa
 <a name="dataset"></a>
 
 ## 3. Dataset
-* Where did you get your data? If you downloaded a dataset (either public or private), describe where you downloaded it and include the command to load the dataset.
-* Did you build your own datset? If so, did you use an API? If so, provide the scripts in your repo.
-* For all types of datasets, provide a description of the size, complexity, and data types included in your dataset, as well as a schema of the tables if necessary.
-* If the question cannot be answered with the available data, why not? What data would you need to answer it better?
 
 In order to answer the questions presented above, as well as to prove the hypotheses, data has been retrieved. The datasets used in this project have been taken from different sources such as Kaggle, London Data Store and Dark Sky API, covering the time period between 2011 and 2014. The dataset structure is defined below: 
 
@@ -64,118 +55,40 @@ In order to answer the questions presented above, as well as to prove the hypoth
 
 - **Accorn Classification:** The end-users classification is considered for each end-user according to their smart meter's measurements. The data comes also from London Data Store, but the explanation can be found in the link below and also to the CACI Report, a company specialist in providing Integrated Marketing, Location Planning Consultancy, Network Services and Technology Solutions. [Link to the CACI Report](https://acorn.caci.co.uk/downloads/Acorn-User-guide.pdf) 
 
-The raw data downloaded has a total size of more than 11 GB. For this reason, it should be better to understand what this data tries to explain and how it is structured, in order to know which files will be used for the project and which not. 
-
-- information_households.csv → This csv contains 5 columns:
-    - LCLid: id of the household 
-    - stdorToU: Type of tariff of the user
-    - acorn: acorn group associated 
-    - acorn_grouped: details of the acorn 
-    - file: file name or hourly block on this user appears. 
-
-- acorn_details.csv → 20 columns containing information about how to classify end-users according to 68 indicators 
-    - MAIN CATEGORIES
-    - CATEGORIES
-    - REFERENCE 
-    - ACORN-A 
-    - ACORN-B
-    - ACORN-C
-    - ACORN-D
-    - ACORN-E
-    - ACORN-F
-    - ACORN-G
-    - ACORN-H
-    - ACORN-I
-    - ACORN-J
-    - ACORN-K
-    - ACORN-L
-    - ACORN-M
-    - ACORN-N
-    - ACORN-O
-    - ACORN-P
-    - ACORN-Q
-- uk_bank_holidays: This csv file contains two columns
-    - Date: date where a bank holiday between 2012 and 2014 occured
-    - Type: Name of the bank holiday (e.g. Christmas, Easter, Summer bank holiday, etc.)
-- weather_hourly_darksky.csv: csv file containing information on the weather in a hourly scale. It contains 12 columns: 
-    - visibility: 
-    - windBearing:
-    - Temperature: measured in Celsius Degrees 
-    - Date Time:
-    - dewPoint:
-    - pressure:
-    - apparentTemperature:
-    - windSpeed:
-    - precipType:
-    - icon:
-    - humidity: 
-    - summary: 
-
-- weather_daily_darksky.csv: csv file containing information on the weather in a daily scale. It contains 32 columns of features: 
-    - temperatureMax: maximum temperature of the day (℃ DEGREE CELSIUS)
-    - temperatureMaxTime: hour of the day of the maximum temperature for that day. 
-    - windBearing
-    - icon
-    - dewPoint
-    - temperatureMinTime
-    - cloudCover
-    - WindSpeed: speed of the wind in km/h
-    - pressure: pressure in (mbar)
-    - apparentTemperatureMinTime
-    - apparentTemperatureHigh
-    - precipType
-    - visibility
-    - apparentTemperatureHighTime
-    - apparentTemperatureLow
-    - apparentTemperatureMax 
-    - uvIndex
-    - time: day timestamp 
-    - sunsetTime 
-    - TemperatureLow
-    - TemperatureMin
-    - TemperatureHigh
-    - sunriseTime
-    - TemperatureHighTime
-    - uvIndexTime
-    - summary
-    - temperatureLowTime: timestamp where the minimum temperature was reached 
-    - apparentTemperatureMin: temperature at temperatureLowTime
-    - apparentTemperatureMaxTime: timestamp where the maximum temperature was reached on that day 
-    - apparentTemperatureMax: temperature at apparentTemperatureMaxTime 
-    - MoonPhase:
-- halfhourly_dataset.zip or folder: this folder contain 112 blocks. Each block is a .csv file containing data of the different households at a half hourly scale.
-In this case, each row contains one user and one halfhour period. There are three columns:
-    - userID
-    - timestamp
-    - energy consumption in kWh. 
+The raw data downloaded has a total size of more than 11 GB. For this reason, it should be better to understand what this data tries to explain and how it is structured, in order to know which files will be used for the project and which not. In the folder 0.Data you will find a Codebook with different tables explaining each .csv file and the features included on each one. 
 
 
-- hhblock_dataset.zip or folder: this folder contains 112 blocks. It contains the same information as halfhourly_dataset in terms of data. In this case, each row is one user for day; and each column is one half-hour for that day, with the energy consumption on that day. 
-
-- daily_STATS_datasets_blocks.zip Zip folder containing 112 blocks. Each block contains information about the energy consumption of that end-user in that day: 
-    - LCLid : userID
-    - day: 
-    - energy_median
-    - energy_mean
-    - energy_max
-    - energy_count
-    - energy_std
-    - energy_sum 
-    - energy_min 
-
-- daily_STATS_datasets_one_file.gz Zip folder containing the same information as above but in only one file. 
-
-
-**Datasets that will be initially used for the project**
-- information_households.csv
-- weather_hourly_darksky.csv
-- hhblock_dataset.zip : Block_12 
-- halfhourly_dataset.zip: Block_12 
+        Datasets that will be initially used for the project
+        - information_households.csv
+        - weather_hourly_darksky.csv
+        - hhblock_dataset.zip : Block_12 
+        - halfhourly_dataset.zip: Block_12 
 
 <a name="cleaning"></a>
 
 ## 4. Cleaning
 Describe your full process of data wrangling and cleaning. Document why you chose to fill missing values, extract outliers, or create the variables you did, etc, as well as your thinking process.
+
+The cleaning process of the dataset has been entirely in one *Jupyter Notebook* named *0_Data_Cleaning.ypnb* as it is described in the Organization section. It has been structured as follows: 
+
+1. Dataset overview
+
+    In this case, we are transforming object columns into *int* or *float* according to the feature we are measuring.
+
+2. Handling Missing Values 
+
+    When we are transforming object columns into datetime, we notice that there are missing values. In this case, since the timescale is 30', we are not taking into account missing values in timescales below 30' and we are dropping these values out of the dataset. 
+
+3. DateTime columns transformation 
+
+    When dealing with weather information or Electricity consumption data, we are working with DateTime objects and time periods. However, sometimes when we import the *csv*, this column is not considered as a DateTime object. Hence, we  should transform this data into DateTime. Furthermore, we should make sure that our DateTime column is sorted descendengly. 
+
+4. Exporting tables into GoogleCloud 
+
+
+    A GoogleCloud has been created to export the data into a SQL Database in order to have it centralized and with different connections between elements. 
+
+**This process has been done for each *csv* file used for the project.**
 
 <a name="analysis"></a>
 
@@ -215,18 +128,27 @@ How will you test the success of our analysis or algorithm?
 Two main tools have been used to organize the project. Trello is a very useful tool to organize and manage all the tasks of the project. Github has been the second tool usd to mantain good practises when coding, being able to have a control of versions and upload all the project to the cloud. Last but not least, in order to understand the project, the Repository has been structured in folders as follows: 
 
 0. **Data:**
+    
     *raw_data* → Folder containing the raw data csv files coming from the resources mentioned in Section 3. 
+
     *cleaned_data* → Folder containgin the cleaned csv files obtained from *0_Data_Cleaning.ypnb* and  that will be used in the *1_Data_Analysis_ML_Model.ypnb* notebook.
 1. **Jupyter Notebooks:**
-    *0_Data_Cleaning.ypnb* → 
-    *1_Data_Analysis_ML_Model.ypnb* → 
-2. Resources: Folder with all the pdf's containing useful information related to the topic of study in this project. 
 
-3. Figures: Folder containing all the .png figures used for the presentation. 
+    *0_Data_Cleaning.ypnb* → 
+
+    *1_Data_Analysis_ML_Model.ypnb* → 
+2. **Resources:**
+
+     Folder with all the pdf's containing useful information related to the topic of study in this project. 
+
+3. **Figures:** 
+    
+    Folder containing all the .png figures used for the presentation. 
+
+
 <a name="links"></a>
 
 ## Links
-Include the links to your repository, slides and trello. Feel free to include any other links associated to your project. 
 
 [Repository](https://github.com/wobniarin/Project-Week-8-Final-Project)  
 [Slides](https://slides.com/ingridmunnecollado/project-5-household-electricity-consumption-forecast)  
