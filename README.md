@@ -36,7 +36,9 @@ Hence, this is the idea of this project. By using data coming from London Data S
 The main questions we want to answer with this project are: 
 
 - Can our electricity consumption be forecast? In this case, we would like to answer this question by predicting the electricity consumption of one household. 
-- Can the electricity consumption explain something about ourselves as end-users? Can we be classified or clusterized in terms of our electricity consumption? 
+
+- Can the electricity consumption explain something about ourselves as end-users? Can we be classified or clusterized in terms of our electricity consumption?
+
 - Has the weather any relationship with the electricity consumption? If so, which are the most related parameters? 
 
 All these questions are of interests when dealing with the integration of renewable energy sources and provide new services to end-users and electricity operators such as local energy and flexibility services. 
@@ -132,24 +134,38 @@ Two main tools have been used to organize the project. Trello is a very useful t
     *raw_data* → Folder containing the raw data csv files coming from the resources mentioned in Section 3. 
 
     *cleaned_data* → Folder containgin the cleaned csv files obtained from *0_Data_Cleaning.ypnb* and  that will be used in the *1_Data_Analysis_ML_Model.ypnb* notebook.
+
+     *This folder is not uploaded into the repository since it has a size of more than 11 GB of data. In case that you want to download the data, access to GoogleCloud Database can be shared with you to retrieve the data, please send me an e-mail at ingridmunne@gmail.com or by Github @wobniarin.*
+    
 1. **Jupyter Notebooks:**
 
-    *0_Data_Cleaning.ypnb* → 
+    *1_Data_Cleaning.ypnb* → 
 
-    *1_Data_Analysis_ML_Model.ypnb* → 
+    *2_TimeSeries_Forecast.ypnb* → 
+
+    *3_Dashboards_Clustering.ypnb* → 
+
+
 2. **Resources:**
 
-     Folder with all the pdf's containing useful information related to the topic of study in this project. 
+     Folder with all the pdf's containing useful information related to the topic of study in this project, such as clients classification. 
 
 3. **Figures:** 
     
     Folder containing all the .png figures used for the presentation. 
 
+4. **README.md:** 
+
+    File that you are currently reading, with all the basic information about the project that has been carried out. 
+
+5. **Codebook.md:**
+
+    Markdown file where a detailed explanation of all the databases used, including the meaning of each feature as well as the units of each feature measurement. 
 
 <a name="links"></a>
 
 ## Links
 
 [Repository](https://github.com/wobniarin/Project-Week-8-Final-Project)  
-[Slides](https://slides.com/ingridmunnecollado/project-5-household-electricity-consumption-forecast)  
+[Slides](https://docs.google.com/presentation/d/1GSuSx_EbSJASnRWV_r75b__daAj41-HFUEzJgN3huU8/edit?usp=sharing)  
 [Trello](https://trello.com/invite/b/5y6nfWDy/543abdc8bc9af930a5112f9e459fd7ca/project-5-final-project)  
