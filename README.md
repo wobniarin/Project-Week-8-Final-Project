@@ -131,34 +131,46 @@ A Time-Series ML Model has been developed using Time-series decomposition and SA
 
 The initial step has been to analyse the autocorrelation, the seasonality and the stationarity of the data. To check the stationarity of the data, a Dickey-Fuller test has been performed. Most models in ML based on TimeSeries should ensure that the data is stationary to be able to be modeled by most algorithms in ML. Later on, the time-series signal has been decomposed into 3: Trend, seasonality and residuals. One of the most important challenges in TS is to decide the train and test, as well as the granularity of the signal to develop the model. 
 
-A SARIMA model has been used to model the data. In this case, the train dataset has been daily data (total consumption per day), for 5 months in 2013. The test set has been 
+A SARIMA model has been used to model the data. In this case, the train dataset has been daily data (total consumption per day), for 5 months in 2013. The test set has been set up with 4 months of 2013, and the test set has been defined by two months in 2013 (May and June). As can be seen in the image below, the forecast is not that bad in the first month but then in the second month the forecast performs badly. For this reason, a further research should be done on time-series. 
 
 
 <img src="./3.Figures/SARIMA_model.png" alt="SARIMA_Forecast" width="700" align="middle"/>
 
-### 6.2. Client Clustering 
+### 6.2. Client Clustering
+
+According to the second objective, a new tariff structure is being developed in this project. Since we are reformulating the tariff structure and we don't know how many tariffs we would create, we consider this problem as **Unsupervised Learning** and **clustering**. In this project two models have been developed: **K-Means** and **DBSCAN**. 
+
+Thanks to the Elbow methos and the Dendogram, we have decided two cases to study, with **k=3** and **k=6**. 
 
 <img src="./3.Figures/Elbow_method.png" alt="elbowmethod" width="700" align="middle"/>
 
-
-sdkkjsdkfsdfk
-
-
+The model with 3 clusters performs better than the model with 6 clusters, according to the plots. Also, the inertia for k=6 is lower that the inertia for k=7 but we don't improve the model by increasing the number of clusters. Also, we can conclude that DBSCAN does not perform well since we have clusters with different densities. With this in mind, we can conclude that the final model will be a K-Means with k=3 clusters. 
 
 <img src="./3.Figures/mean_std_k3.png" alt="mean_std_k3" width="600" align="middle"/>
 
+We can see that there are such clusters in the model and that more tariffs could be created, according to the basic statistics of the users. 
 
 <a name="conclusion"></a>
 
 ## 7. Conclusion
-* Summarize your results. What do they mean?
-* What can you say about your hypotheses?
-* Interpret your findings in terms of the human-understandable question you try to answer.
+
+Once the project has been performed, some conclusions can be extracted. This model has allowed me to learn more about Machine Learning and time-series, and I have been able to create an end-to-end project based on data and energy, a topic that I trully enjoy. 
+
+The time-series model has been developed, by the overall accuracy and MSE states that the performance is not good right now. For this reason, further research should be done. However, I have been able to figure out the level of difficulty that a time-series data can have. 
+
+Dashboards can be a nice tool for end-users and also for utilities to increase their value as a company and provide better services to end-users, as well as having more information about them. Also, the energy price could be included and some statistics based on previous data. 
+
+Regarding the clustering, by means of this project we have defined a new tariff model based on consumption patterns, that can be the starting point to new business models around electric utilities. Furthermore, we could prove that unsupervised learning K-Means models can be implemented in our database and 3 is a good number for clustering our clients. 
+
 
 <a name="future-work"></a>
 
 ## 8. Future Work
-Address any questions you were unable to answer, or any next steps or future extensions to your project.
+We have not been able to answer some questions properly. We should improve the time-series forecast by learning more about the hyperparameters to tune in a SARIMA model. Furthermore, maybe a neural network model could be implemented to forecast the energy consumption. 
+
+Regarding the client clustering, the tariff structure we have defined by K-Means is a good way to start defining new and more personalized tariffs. However, it should be noticed that we are not considering here specifically the electricity consumption curve. Hence, a further work could be performed by considering the demand curve as well as the basic statistics. 
+
+Last but not least, related to the Dashboard, an entire dashboard could be developed using Plotly and Dash to create fully interactive plots. 
 
 <a name="workflow"></a>
 
