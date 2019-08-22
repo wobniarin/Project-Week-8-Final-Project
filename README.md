@@ -90,21 +90,63 @@ The cleaning process of the dataset has been entirely in one *Jupyter Notebook* 
 
     A GoogleCloud has been created to export the data into a SQL Database in order to have it centralized and with different connections between elements. 
 
-**This process has been done for each *csv* file used for the project.**
+
+_**This process has been done for each *csv* file used for the project.**_
 
 <a name="analysis"></a>
 
 ## 5. Analysis
-* Overview the general steps you will go through to analyze your data in order to test your hypothesis.
-* Document each step of your data exploration and analysis.
-* Include charts to demonstrate the effect of your work. 
-* If you use ML in your final project, describe your feature selection process.
+
+Once the data has been cleaned, and since this project deals with time-series, an important step before performing a ML model is to understand how the time-series looks like. This is also the idea of making user's dashboards where the end-user can see their energy consumption in different timeframes. When starting the project, the main hypotheses or assumptions that were taken into account were: 
+ 
+ 1. There are different patterns in terms of energy consumption depending on the time-period
+
+ 2. There are differences in energy consumption throughout the year. 
+
+<img src="./3.Figures/yearly_consumption.png" alt="yearly_cons" width="900" align="middle"/>
+
+We can see that in Summer months the consumption is lower than in other periods. However, with time-series can be a little bit difficult to notice and for this reason moving averages will be calculated to see the trend of the consumption. 
+
+ 3. There are differences between users, but in general they follow the same patterns (high consumption during day and low consumption at night.)
+
+  In the figure below, the energy consumption of user with ID MAC004280 is shown, and the pattern can be clearly seen. 
+
+<img src="./3.Figures/MAC004280_2days.png" alt="user_dashboard" width="900" align="middle"/>
+
+
+
+ 4. There are two types of tariff that end-users have contracted and also, most users will have the Standard Tariff instead of the ToU tariff. 
+
+<img src="./3.Figures/Tariff_users.png" alt="user_tariff" width="900" align="middle"/>
 
 <a name="model-training-and-evaluation"></a>
 
 ## 6. Model Training and Evaluation
-*Include this section only if you chose to include ML in your project.*
-* Describe how you trained your model, the results you obtained, and how you evaluated those results.
+
+In this project two ML models have been developed. First of all, according to the first objective, a Time-Series Forecast model has been performed using SARIMA. Secondly, a Clustering on our clients' portfolio has been developed. 
+
+### 6.1. Time - Series Forecast
+
+A Time-Series ML Model has been developed using Time-series decomposition and SARIMA Models, from *sklearn* library. 
+
+The initial step has been to analyse the autocorrelation, the seasonality and the stationarity of the data. To check the stationarity of the data, a Dickey-Fuller test has been performed. Most models in ML based on TimeSeries should ensure that the data is stationary to be able to be modeled by most algorithms in ML. Later on, the time-series signal has been decomposed into 3: Trend, seasonality and residuals. One of the most important challenges in TS is to decide the train and test, as well as the granularity of the signal to develop the model. 
+
+A SARIMA model has been used to model the data. In this case, the train dataset has been daily data (total consumption per day), for 5 months in 2013. The test set has been 
+
+
+<img src="./3.Figures/SARIMA_model.png" alt="SARIMA_Forecast" width="700" align="middle"/>
+
+### 6.2. Client Clustering 
+
+<img src="./3.Figures/Elbow_method.png" alt="elbowmethod" width="700" align="middle"/>
+
+
+sdkkjsdkfsdfk
+
+
+
+<img src="./3.Figures/mean_std_k3.png" alt="mean_std_k3" width="600" align="middle"/>
+
 
 <a name="conclusion"></a>
 
@@ -121,8 +163,10 @@ Address any questions you were unable to answer, or any next steps or future ext
 <a name="workflow"></a>
 
 ## 9. Workflow
-Outline the workflow you used in your project. What were the steps?
-How will you test the success of our analysis or algorithm?
+
+The workflow of the project can be split into three main parts: Data Acquisition and cleaning, Data Storing and Machine learning models, always based on the project's objective. In the figure below, a workflow diagram is shown to highlight the main steps of the project. 
+
+<img src="./3.Figures/WORKFLOW.png" alt="Workflow" width="700" align="middle"/>
 
 <a name="organization"></a>
 
@@ -154,11 +198,11 @@ Two main tools have been used to organize the project. Trello is a very useful t
     
     Folder containing all the .png figures used for the presentation. 
 
-4. **README.md:** 
+4. **README markdown file:** 
 
     File that you are currently reading, with all the basic information about the project that has been carried out. 
 
-5. **Codebook.md:**
+5. **Codebook markdown file:**
 
     Markdown file where a detailed explanation of all the databases used, including the meaning of each feature as well as the units of each feature measurement. 
 
