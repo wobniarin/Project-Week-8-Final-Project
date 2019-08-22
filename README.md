@@ -195,11 +195,11 @@ Two main tools have been used to organize the project. Trello is a very useful t
     
 1. **Jupyter Notebooks:**
 
-    *1_Data_Cleaning.ypnb* → 
+    *1_Data_Cleaning.ypnb* → Data wrangling, cleaning and exporting to GoogleCloud SQL
 
-    *2_TimeSeries_Forecast.ypnb* → 
+    *2_TimeSeries_Forecast.ypnb* →  SARIMA Model and Dickey Fuller test for different time periods. 
 
-    *3_Dashboards_Clustering.ypnb* → 
+    *3_Dashboards_Clustering.ypnb* →  Dashboards development using Plotly and Clustering modelling by means of K-Means and DBSCAN. 
 
 
 2. **Resources:**
